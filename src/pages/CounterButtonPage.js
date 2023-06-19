@@ -1,6 +1,7 @@
 import React, { useState  } from 'react';
 import { CounterButton } from '../CounterButton';
 import { CongratulationsMessage } from '../CongratulationsMessage';
+import { useParams } from 'react-router-dom';
 
 export const CounterButtonPage = () => {
     const [numberOfClicks, setNumberOfClicks] = useState(0);//array destructuring syntax. first const = curr value of state, second const = updated value of state. setting both to 0 at start

@@ -1,30 +1,20 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { HomePage, CounterButtonPage, PeopleListPage } from './pages';
 import './App.css';
-import { CounterButton } from './CounterButton';
-import { CongratulationsMessage } from './CongratulationsMessage';
 
 function App() {
-  const [numberOfClicks, setNumberOfClicks] = useState(0);//array destructuring syntax. first const = curr value of state, second const = updated value of state. setting both to 0 at start
-  const increment = () => setNumberOfClicks(numberOfClicks + 1);
-  const resetClicks = () => setNumberOfClicks(0);
-  const [hideMessage, setHideMessage] = useState(false);  
 
   return (
     <div className="App">
       <Router>
+        <Link to="/counter">Go to Counter Page</Link>
+        <Link to="/people-list">Go to People List Page</Link>
         <Routes>
-          <Route path="/" exact>
-            <HomePage />
-          </Route>
-          <Route path="/counter" exact>
-            <CounterButtonPage />
-          </Route>
-          <Route path="/people-list" exact>
-            <PeopleListPage />
-          </Route>
+          <Route path="/" element={<HomePage />}/>
+          <Route path="/counter" element={<CounterButtonPage />}/>
+          <Route path="/people-list" element={<PeopleListPage />}/>
         </Routes>
       </Router>
     </div>
@@ -48,3 +38,10 @@ export default App;
         >
           Learn React
         </a> */
+
+/* 
+  const [numberOfClicks, setNumberOfClicks] = useState(0);//array destructuring syntax. first const = curr value of state, second const = updated value of state. setting both to 0 at start
+  const increment = () => setNumberOfClicks(numberOfClicks + 1);
+  const resetClicks = () => setNumberOfClicks(0);
+  const [hideMessage, setHideMessage] = useState(false);  
+*/
