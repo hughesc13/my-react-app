@@ -1,33 +1,40 @@
-//import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Routes } from 'react-router-dom';
+import { HomePage, CounterButtonPage, PeopleListPage } from './pages';
 import './App.css';
-import { Greeting } from './Greeting'; //exporting Greeting as named thing instead of default
-import { PeopleList } from './PeopleList';
-
-//IM SO CONFUSED WHAT IS GOING ON W PEOPLELISTITEM AND PEOPLELIST GAHSDGKSDFSF
-
-const people = [{
-  name: 'Claire',
-  age: 21,
-  hairColor: 'brown',
-}, { 
-  name: 'Alex',
-  age: 23,
-  hairColor: 'brown',
-}];
-
-/* const displayAlert = () => {
-  alert("maisa wants pets!");
-} */
+import { CounterButton } from './CounterButton';
+import { CongratulationsMessage } from './CongratulationsMessage';
 
 function App() {
-  let adjective = 'cool';
-  let url = "https://reactjs.org";
+  const [numberOfClicks, setNumberOfClicks] = useState(0);//array destructuring syntax. first const = curr value of state, second const = updated value of state. setting both to 0 at start
+  const increment = () => setNumberOfClicks(numberOfClicks + 1);
+  const resetClicks = () => setNumberOfClicks(0);
+  const [hideMessage, setHideMessage] = useState(false);  
 
-  //functional components return jsx :)
   return (
     <div className="App">
-      <header className="App-header">
-        <Greeting name="Claire" numberOfBarks={4}/>
+      <Router>
+        <Routes>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
+          <Route path="/counter" exact>
+            <CounterButtonPage />
+          </Route>
+          <Route path="/people-list" exact>
+            <PeopleListPage />
+          </Route>
+        </Routes>
+      </Router>
+    </div>
+  );
+}
+
+export default App;
+
+
+/*    <Greeting name="Claire" numberOfBarks={4}/>
         <PeopleList people={people}/>
         <button onClick={() => alert("maisa wants pets!")}>click me!</button>
         <p>
@@ -40,10 +47,4 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+        </a> */
