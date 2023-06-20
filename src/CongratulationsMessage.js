@@ -9,7 +9,7 @@ export const CongratulationsMessage = ({ numberOfClicks, threshold, onHide }) =>
     numberOfClicks >= threshold ?
         <>
             <h1>Congratulations! you have reached {threshold} number of clicks!</h1>
-           {/* <button onClick={onHide}>hide!</button> */}
+            <button onClick={onHide}>hide!</button>
         </>
         : null
     );
