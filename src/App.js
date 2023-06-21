@@ -13,7 +13,6 @@ import { NavBar } from './NavBar';
 import { FormsNavBar } from './FormsNavBar';
 import './App.css';
 
-//https://stackoverflow.com/questions/70641518/how-to-navigate-submenu-items-using-react-router-dom-v6#:~:text=%3CNavItem%20link%3D%22%2Fmanage%22%20icon%3D%20%7BHappinessIcon%7D%20label%3D%22Manage%22%20hasSubItem%3E%20%3Cdiv%3E%20%3CNavSubItem,%3CNavSubItem%20link%3D%22%2Fmanage%2Fsub2%22%20label%3D%22Sub%20Item%202%22%20%2F%3E%20%3C%2Fdiv%3E%20%3C%2FNavItem%3E
 function App() {
 
   return (
@@ -26,17 +25,9 @@ function App() {
           <Route path="/counter" element={<CounterButtonPage />}/>
           <Route path="/people-list" element={<PeopleListPage />}/>
           <Route path="/protected" element={<ProtectedPage />}/>
-
-          <Route path="/forms">
-
-            <FormsNavBar />
-              <Route path="/forms/controlled" element={<ControlledFormPage />}/>
-              <Route path="/forms/uncontrolled" element={<UncontrolledFormPage />}/>
-          
-          </Route>
-
-          <Route path="/controlled" element={<ControlledFormPage />}/>
-          <Route path="/uncontrolled" element={<UncontrolledFormPage />}/>
+          <Route path="/forms/controlled" element={<ControlledFormPage />}/>
+          <Route path="/forms/uncontrolled" element={<UncontrolledFormPage />}/>
+          <Route path="/forms/*" element={<FormsNavBar />}/>
           <Route path="*" element={<NotFoundPage />}/>
         </Routes>
         </div>
