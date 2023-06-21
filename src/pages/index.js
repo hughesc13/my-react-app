@@ -5,3 +5,4 @@ export { PeopleListPage } from './PeopleListPage';
 export { HomePage } from './HomePage';
 export { NotFoundPage } from './NotFoundPage';
 export { ProtectedPage } from './ProtectedPage';
+export { UserProfilePage } from './UserProfilePage';

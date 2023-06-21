@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Button, DangerButton } from './Button';
 
 export const CounterButton = ({ onIncrement, numberOfClicks, resetClicks }) => {
     useEffect(() => {
@@ -9,8 +10,8 @@ export const CounterButton = ({ onIncrement, numberOfClicks, resetClicks }) => {
     return (
         <>
         <p>you've clicked the button {numberOfClicks} times</p>
-        <button onClick={onIncrement}>click me!</button>
-        <button onClick={resetClicks}>reset clicks!</button>
+        <DangerButton onClick={onIncrement}>click me!</DangerButton>
+        <Button onClick={resetClicks}>reset clicks!</Button>
         </>
     );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SuccessButton } from '../Button';
 
 export const ControlledFormPage = () => {
     const [name, setName] = useState(''); //empty str is initial value
@@ -29,14 +30,14 @@ export const ControlledFormPage = () => {
                     value={fav}
                     onChange={e => setFav(e.target.value)} />
             </div>
-            <button onClick={e => {
+            <SuccessButton onClick={e => {
                 alert(`
                 your name is ${name}
                 your email is ${email}
                 and ${fav} is your fav
                 `);
                 e.preventDefault();
-            }}>Submit</button>
+            }}>Submit</SuccessButton>
         </form>
     );
 }

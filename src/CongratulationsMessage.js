@@ -1,17 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Button } from './Button';
 
-export const CongratulationsMessage = ({ numberOfClicks, threshold, onHide }) => {
-     useEffect(() => {
-        return () => console.log('CongratulationsMessage unmounting!');
-    }, []);//[] so useEffect is only used when component is first rendered
- 
+export const CongratulationsMessage = ({ threshold, onHide }) => {
     return (
-    numberOfClicks >= threshold ?
         <>
             <h1>Congratulations! you have reached {threshold} number of clicks!</h1>
-            <button onClick={onHide}>hide!</button>
+            <Button onClick={onHide}>hide!</Button>
         </>
-        : null
     );
 }
 //if numberofclicks is over threshold, displau message and hide button. else, do nothing

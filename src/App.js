@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { 
   HomePage, 
@@ -8,9 +8,11 @@ import {
   NotFoundPage, 
   ProtectedPage, 
   ControlledFormPage, 
-  UncontrolledFormPage } from './pages';
+  UncontrolledFormPage,
+  UserProfilePage } from './pages';
 import { NavBar } from './NavBar';
 import { FormsNavBar } from './FormsNavBar';
+import { UserDataLoader } from './UserDataLoader';
 import './App.css';
 
 function App() {
@@ -25,11 +27,22 @@ function App() {
           <Route path="/counter" element={<CounterButtonPage />}/>
           <Route path="/people-list" element={<PeopleListPage />}/>
           <Route path="/protected" element={<ProtectedPage />}/>
-          <Route path="/forms/controlled" element={<ControlledFormPage />}/>
-          <Route path="/forms/uncontrolled" element={<UncontrolledFormPage />}/>
-          <Route path="/forms/*" element={<FormsNavBar />}/>
-          <Route path="*" element={<NotFoundPage />}/>
+
+          <Route path="/user" element={<UserDataLoader><UserProfilePage /></UserDataLoader>}/>
+
+
+
+          <Route path="/forms">
+            <Route index element={<FormsNavBar />} />
+            <Route path="controlled" element={<ControlledFormPage />}/>
+            <Route path="uncontrolled" element={<UncontrolledFormPage />}/>
+          </Route>
+
+        <Route path="*" element={<NotFoundPage />}/>
         </Routes>
+
+       
+
         </div>
       </Router>
     </div>
