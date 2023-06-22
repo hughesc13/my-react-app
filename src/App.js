@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { 
@@ -13,39 +13,45 @@ import {
 import { NavBar } from './NavBar';
 import { FormsNavBar } from './FormsNavBar';
 import { UserDataLoader } from './UserDataLoader';
+import { ThemeContext } from './ThemeContext';
+import { ThemeButton } from './ThemeButton';
 import './App.css';
 
 function App() {
+  const [theme, setTheme] = useState('dark');
 
   return (
-    <div className="App">
-      <Router>
-        <NavBar />
-        <div className="App-header">
-        <Routes>
-          <Route path="/" element={<HomePage />}/>
-          <Route path="/counter" element={<CounterButtonPage />}/>
-          <Route path="/people-list" element={<PeopleListPage />}/>
-          <Route path="/protected" element={<ProtectedPage />}/>
+    <ThemeContext.Provider value={theme}>
+      <div className="App">
+        <Router>
+          <ThemeButton theme={theme} setTheme={setTheme}/>
+          <NavBar />
+          <div className="App-header">
+          <Routes>
+            <Route path="/" element={<HomePage />}/>
+            <Route path="/counter" element={<CounterButtonPage />}/>
+            <Route path="/people-list" element={<PeopleListPage />}/>
+            <Route path="/protected" element={<ProtectedPage />}/>
 
-          <Route path="/user" element={<UserDataLoader><UserProfilePage /></UserDataLoader>}/>
+            <Route path="/user" element={<UserDataLoader><UserProfilePage /></UserDataLoader>}/>
 
 
 
-          <Route path="/forms">
-            <Route index element={<FormsNavBar />} />
-            <Route path="controlled" element={<ControlledFormPage />}/>
-            <Route path="uncontrolled" element={<UncontrolledFormPage />}/>
-          </Route>
+            <Route path="/forms">
+              <Route index element={<FormsNavBar />} />
+              <Route path="controlled" element={<ControlledFormPage />}/>
+              <Route path="uncontrolled" element={<UncontrolledFormPage />}/>
+            </Route>
 
-        <Route path="*" element={<NotFoundPage />}/>
-        </Routes>
+          <Route path="*" element={<NotFoundPage />}/>
+          </Routes>
 
-       
+        
 
-        </div>
-      </Router>
-    </div>
+          </div>
+        </Router>
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
