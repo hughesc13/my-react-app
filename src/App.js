@@ -19,10 +19,10 @@ import './App.css';
 
 function App() {
   const [theme, setTheme] = useState('dark');
-
+//https://www.tutorialkart.com/javascript/how-to-change-background-color-of-div-in-javascript/#gsc.tab=0
   return (
     <ThemeContext.Provider value={theme}>
-      <div className="App">
+      <div className="App" style="color:{theme}">
         <Router>
           <ThemeButton theme={theme} setTheme={setTheme}/>
           <NavBar />
@@ -34,9 +34,7 @@ function App() {
             <Route path="/protected" element={<ProtectedPage />}/>
 
             <Route path="/user" element={<UserDataLoader><UserProfilePage /></UserDataLoader>}/>
-
-
-
+            
             <Route path="/forms">
               <Route index element={<FormsNavBar />} />
               <Route path="controlled" element={<ControlledFormPage />}/>
