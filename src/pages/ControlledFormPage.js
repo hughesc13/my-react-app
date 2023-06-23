@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SuccessButton } from '../Button';
+import Button from '@mui/material/Button';
 
 export const ControlledFormPage = () => {
     const [name, setName] = useState(''); //empty str is initial value
@@ -30,14 +30,14 @@ export const ControlledFormPage = () => {
                     value={fav}
                     onChange={e => setFav(e.target.value)} />
             </div>
-            <SuccessButton onClick={e => {
+            <Button onClick={e => {
                 alert(`
                 your name is ${name}
                 your email is ${email}
                 and ${fav} is your fav
                 `);
                 e.preventDefault();
-            }}>Submit</SuccessButton>
+            }}>Submit</Button>
         </form>
     );
 }

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Button, DangerButton } from './Button';
+import Button from '@mui/material/Button';
 
 export const CounterButton = ({ onIncrement, numberOfClicks, resetClicks }) => {
     useEffect(() => {
@@ -10,8 +10,9 @@ export const CounterButton = ({ onIncrement, numberOfClicks, resetClicks }) => {
     return (
         <>
         <p>you've clicked the button {numberOfClicks} times</p>
-        <DangerButton onClick={onIncrement}>click me!</DangerButton>
-        <Button onClick={resetClicks}>reset clicks!</Button>
+        <Button variant="contained" onClick={onIncrement}>click me!</Button>
+        <p> </p>
+        <Button variant="contained" onClick={resetClicks}>reset clicks!</Button>
         </>
     );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { PeopleList } from '../PeopleList.js';
+import { ThemeButton } from '../ThemeButton';
 
 const people = [{
     name: 'Claire',

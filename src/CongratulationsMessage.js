@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button } from './Button';
+import Button from '@mui/material/Button';
 
 export const CongratulationsMessage = ({ threshold, onHide }) => {
     return (
         <>
             <h1>Congratulations! you have reached {threshold} number of clicks!</h1>
-            <Button onClick={onHide}>hide!</Button>
+            <Button variant="contained" onClick={onHide}>hide!</Button>
         </>
     );
 }

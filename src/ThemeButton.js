@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { ThemeContext } from './ThemeContext';
 import styled from 'styled-components';
+import Button from '@mui/material/Button';
 
 const backgroundColor = styled.div`
     background-color = ${props => props.theme || 'light'}
@@ -17,7 +18,7 @@ export const ThemeButton = ({ theme, setTheme, ...props }) => {
 
     return (
         <>
-        <button onClick={toggleTheme}>Toggle Theme</button>
+        <Button onClick={toggleTheme}>Toggle Theme</Button>
         </>
     );
 }

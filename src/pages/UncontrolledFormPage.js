@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '@mui/material/Button';
+
 
 export const UncontrolledFormPage = () => {
     const nInput = React.createRef();
@@ -25,14 +27,14 @@ export const UncontrolledFormPage = () => {
                     type="text" 
                     placeholder="Favorite Something"/>
             </div>
-            <button onClick={e => {
+            <Button onClick={e => {
                 alert(`
                     Your name is ${nInput.current.value}
                     your email is ${eInput.current.value}
                     and ${fInput.current.value} is your favorite!
                 `);
                 e.preventDefault();
-            }}>Submit</button>
+            }}>Submit</Button>
         </form>
     );
 }
