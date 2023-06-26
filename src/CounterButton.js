@@ -2,11 +2,6 @@ import React, { useEffect } from 'react';
 import Button from '@mui/material/Button';
 
 export const CounterButton = ({ onIncrement, numberOfClicks, resetClicks }) => {
-    useEffect(() => {
-        console.log('useEffect function called');//called when ever we render
-        return () => console.log('unmounting');
-    }, []);
-
     return (
         <>
         <p>you've clicked the button {numberOfClicks} times</p>

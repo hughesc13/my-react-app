@@ -18,7 +18,7 @@ export const ThemeButton = ({ theme, setTheme, ...props }) => {
 
     return (
         <>
-        <Button onClick={toggleTheme}>Toggle Theme</Button>
+        <Button variant="outlined" onClick={toggleTheme}>Toggle Theme</Button>
         </>
     );
 }

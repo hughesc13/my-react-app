@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { 
@@ -15,8 +16,7 @@ import { FormsNavBar } from './FormsNavBar';
 import { UserDataLoader } from './UserDataLoader';
 import { ThemeContext } from './ThemeContext';
 import { ThemeButton } from './ThemeButton';
-
-//import './App.css';
+import './App.css';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -34,10 +34,21 @@ import Box from '@mui/material/Box';
 
 
 function App() {
+  const [theme, setTheme] = useState('light');
+
+  //background color
+  if (theme === 'light') {
+    document.body.style.background = 'white';
+  } else {
+    document.body.style.background = 'grey';
+  }
 
   return (
 
-      <div className="App">
+      <div className="App"
+        style={{
+          color: theme === 'dark' ? 'white' : 'black'
+        }}>
         <Router>
           <NavBar />
           <div className="App-header">
@@ -55,6 +66,9 @@ function App() {
           <Route path="*" element={<NotFoundPage />}/>
           </Routes>
           </div>
+          <p> </p>
+          <ThemeButton theme={theme} setTheme={setTheme} />
+          <p> </p>
         </Router>
       </div>
 

@@ -4,10 +4,16 @@ import React from 'react';
 export function Greeting({ name, numberOfBarks }) {
     if (!name) return null;
 
-    let isMorning = (new Date()).getHours <12;//tells us if curr time is before or after 12pm
-    let greetingHeader = isMorning
-        ? <h3>It's morning, {name}.</h3>
-        : <h3>Hello {name}! It is sometime after noon.</h3>;
+    const getHour = () => {
+        const date = new Date();
+        const hour = date.getHours()
+        console.log(hour);
+        return hour;
+    }
+
+    let greetingHeader = (getHour() < 12)
+        ? <h3>Good morning {name}!</h3>
+        : <h3>Good afternoon {name}!</h3>;
 
     return (
         <>
