@@ -18,7 +18,7 @@ export const ThemeButton = ({ theme, setTheme, ...props }) => {
 
     return (
         <>
-        <Button variant="outlined" onClick={toggleTheme}>Toggle Theme</Button>
+        <Button padding="16px" variant="outlined" onClick={toggleTheme}>Toggle Theme</Button>
         </>
     );
 }

@@ -40,7 +40,7 @@ function App() {
   if (theme === 'light') {
     document.body.style.background = 'white';
   } else {
-    document.body.style.background = 'grey';
+    document.body.style.backgroundColor = '#373852';
   }
 
   return (
